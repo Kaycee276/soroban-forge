@@ -71,18 +71,14 @@ pub trait SorobanForgeSubscriptionPayments {
     /// elapsed paused duration.
     ///
     /// Requires the subscriber. Only valid when `Paused`.
-    fn resume(
-        env: Env,
-        subscription_id: u64,
-    ) -> Result<(), soroban_forge_shared_utils::ForgeError>;
+    fn resume(env: Env, subscription_id: u64)
+        -> Result<(), soroban_forge_shared_utils::ForgeError>;
 
     /// Cancel `subscription_id`, preventing further charges.
     ///
     /// Requires the subscriber. Valid when `Active`, `Paused`, or `PastDue`.
-    fn cancel(
-        env: Env,
-        subscription_id: u64,
-    ) -> Result<(), soroban_forge_shared_utils::ForgeError>;
+    fn cancel(env: Env, subscription_id: u64)
+        -> Result<(), soroban_forge_shared_utils::ForgeError>;
 
     /// Read a stored subscription by id (read-only view).
     fn get_subscription(
